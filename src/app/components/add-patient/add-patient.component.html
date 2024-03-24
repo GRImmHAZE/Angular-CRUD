@@ -1,0 +1,233 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Patient Details</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <br />
+    <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+      <div class="row mx-0">
+        <div class="colCust">
+          <p class="ml-1">First Name</p>
+          <mat-form-field appearance="outline" class="mx-1">
+            <input matInput formControlName="firstName" />
+            <mat-error
+              *ngIf="
+                getFormControl('firstName')?.hasError('required') &&
+                getFormControl('firstName')?.touched
+              "
+            >
+              First Name is <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="colCust">
+          <p class="ml-1">Last Name</p>
+          <mat-form-field appearance="outline" class="mx-1">
+            <input matInput formControlName="lastName" />
+            <mat-error
+              *ngIf="
+                getFormControl('lastName')?.hasError('required') &&
+                getFormControl('lastName')?.touched
+              "
+            >
+              Last Name is <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="colCust">
+          <p class="ml-1">Phone</p>
+          <mat-form-field appearance="outline" class="mx-1">
+            <input matInput formControlName="phone" />
+            <mat-error
+              *ngIf="
+                getFormControl('phone')?.hasError('required') &&
+                getFormControl('phone')?.touched
+              "
+            >
+              Phone number is <strong>*required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="
+                getFormControl('phone')?.hasError('pattern') &&
+                getFormControl('phone')?.invalid
+              "
+            >
+              Please enter a valid Phone
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mx-0">
+        <div class="colCust">
+          <p class="ml-1">Email</p>
+          <mat-form-field appearance="outline" class="mx-1">
+            <input matInput formControlName="email" />
+            <mat-error
+              *ngIf="
+                getFormControl('email')?.hasError('required') &&
+                getFormControl('email')?.touched
+              "
+            >
+              Email is <strong>*required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="
+                getFormControl('email')?.hasError('email') &&
+                getFormControl('email')?.invalid
+              "
+            >
+              Please enter a valid email
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="colCust">
+          <p class="ml-1">Address Line 1</p>
+          <mat-form-field appearance="outline" class="mx-1">
+            <input matInput formControlName="addressLine1" />
+            <mat-error
+              *ngIf="
+                getFormControl('addressLine1')?.hasError('required') &&
+                getFormControl('addressLine1')?.touched
+              "
+            >
+              Address Line 1 is <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="colCust">
+          <p class="ml-1">Address Line 2</p>
+          <mat-form-field appearance="outline" class="mx-1">
+            <input matInput formControlName="addressLine2" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row mx-0">
+        <div class="colCust">
+          <p class="ml-1">City</p>
+          <mat-form-field appearance="outline" class="mx-1">
+            <input matInput formControlName="city" />
+            <mat-error
+              *ngIf="
+                getFormControl('city')?.hasError('required') &&
+                getFormControl('city')?.touched
+              "
+            >
+              City is <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="colCust">
+          <p class="ml-1">State</p>
+          <mat-form-field appearance="outline" class="mx-1">
+            <input matInput formControlName="state" />
+            <mat-error
+              *ngIf="
+                getFormControl('state')?.hasError('required') &&
+                getFormControl('state')?.touched
+              "
+            >
+              State is <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="colCust">
+          <p class="ml-1">Zip Code</p>
+          <mat-form-field appearance="outline" class="mx-1">
+            <input matInput formControlName="zipCode" />
+            <mat-error
+              *ngIf="
+                getFormControl('zipCode')?.hasError('required') &&
+                getFormControl('zipCode')?.touched
+              "
+            >
+              Zip Code is <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div formArrayName="emergencyContacts">
+        <div
+          *ngFor="let contact of emergencyContacts.controls; let i = index"
+          class="row mx-0"
+          [formGroupName]="i"
+        >
+          <div class="colCust">
+            <p class="ml-1">Relation</p>
+            <mat-form-field appearance="outline" class="mx-1">
+              <input matInput formControlName="relation" />
+              <mat-error
+                *ngIf="
+                  getFormControl('relation')?.hasError('required') &&
+                  getFormControl('relation')?.touched
+                "
+              >
+                Relation is <strong>*required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="colCust">
+            <p class="ml-1">Name</p>
+            <mat-form-field appearance="outline" class="mx-1">
+              <input matInput formControlName="name" />
+              <mat-error
+                *ngIf="
+                  getFormControl('name')?.hasError('required') &&
+                  getFormControl('name')?.touched
+                "
+              >
+                Name is <strong>*required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="colCust">
+            <p class="ml-1">Phone</p>
+            <mat-form-field appearance="outline" class="mx-1">
+              <input matInput formControlName="phone" />
+              <mat-error
+                *ngIf="
+                  getFormControl('phone')?.hasError('required') &&
+                  getFormControl('phone')?.touched
+                "
+              >
+                Phone number is <strong>*required</strong>
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  getFormControl('phone')?.hasError('pattern') &&
+                  getFormControl('phone')?.invalid
+                "
+              >
+                Please enter a valid Phone
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="colCust">
+            <button
+              mat-button
+              type="button"
+              class="deleteButton"
+              (click)="removeContact(i)"
+            >
+              Delete Contact
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row mx-0">
+        <button mat-raised-button class="submitButton px-4" type="submit">
+          Add
+        </button>
+        <span class="example-spacer"></span>
+        <button
+          mat-button
+          type="button"
+          class="addButton"
+          (click)="addContact()"
+        >
+          Add Emergency Contact
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

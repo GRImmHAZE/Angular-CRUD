@@ -1,0 +1,7 @@
+{
+  "app": "CRUD",
+  "baseURL": "https://dummyjson.com/",
+  "theme": {
+    "primary": "#673ab7"
+  }
+}

@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "assets/bootstrap.min.css";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-mdc-form-field,
+.mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+  font-size: 10px !important;
+}
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+.mat-mdc-form-field-infix {
+  min-height: 20px;
+}
+.mdc-text-field .mdc-floating-label {
+  top: 50% !important;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined
+  .mdc-notched-outline--upgraded
+  .mdc-floating-label--float-above {
+  --mat-mdc-form-field-label-transform: translateY(-19px)
+    scale(var(--mat-mdc-form-field-floating-label-scale, 0.75));
+  transform: var(--mat-mdc-form-field-label-transform);
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.snakbar-green {
+  --mdc-snackbar-container-color: #29df29 !important;
+  --mat-mdc-snack-bar-button-color: #ffffff !important;
+}
+.snakbar-red {
+  --mdc-snackbar-container-color: #fa2727 !important;
+  --mat-mdc-snack-bar-button-color: #ffffff !important;
+}

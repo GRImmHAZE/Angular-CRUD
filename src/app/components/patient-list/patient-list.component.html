@@ -1,0 +1,80 @@
+<mat-card class="w-100">
+  <mat-card-header>
+    <mat-card-title>Patient List</mat-card-title>
+    <span class="example-spacer"></span>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Search by First Name"
+      />
+    </mat-form-field>
+  </mat-card-header>
+  <mat-card-content class="pb-0">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="mat-elevation-z1"
+      *ngIf="!noDataFound"
+    >
+      <!-- First Name Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.firstName }}</td>
+      </ng-container>
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.lastName }}</td>
+      </ng-container>
+      <!-- Address Column -->
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let user" class="addressField">
+          {{
+            user.address.address +
+              ", " +
+              user.address.city +
+              ", " +
+              user.address.state
+          }}
+        </td>
+      </ng-container>
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let user">
+          <button
+            mat-icon-button
+            class="menu"
+            aria-label="Edit"
+            (click)="EditFunction(user)"
+          >
+            <mat-icon class="action mt-1">edit</mat-icon>
+          </button>
+          &nbsp;
+          <button
+            mat-icon-button
+            class="menu"
+            aria-label="delete"
+            (click)="deleteFunction(user)"
+          >
+            <mat-icon class="action mt-1">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <div *ngIf="noDataFound" class="no-data-message">No Data Found</div>
+
+    <mat-paginator
+      *ngIf="!isFilterActive()"
+      [length]="length"
+      [pageSize]="currLength"
+      (page)="onPageChange($event)"
+    ></mat-paginator>
+  </mat-card-content>
+</mat-card>

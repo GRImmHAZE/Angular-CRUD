@@ -1,0 +1,41 @@
+.submitButton {
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #673ab7;
+  border: none;
+  color: white;
+  font-size: 15px;
+}
+.addButton {
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #3a90b7;
+  border: none;
+  color: white;
+  font-size: 15px;
+}
+.deleteButton {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #b73a3a;
+  border: none;
+  color: white;
+  font-size: 15px;
+}
+
+.colCust{
+ width: 33.33%;
+}
+
+.mat-mdc-form-field{
+  width: calc(104% - 20px);
+}
+
+@media (max-width: 767px) {
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+  .colCust{
+    width: auto;
+  }
+}

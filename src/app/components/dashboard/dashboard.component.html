@@ -1,0 +1,65 @@
+<mat-toolbar color="primary">
+  <span class="patient px-3">Patient System</span>
+  <button
+    mat-icon-button
+    color="primary"
+    class="menu ml-4"
+    aria-label="Example icon button with a menu icon"
+  >
+    <mat-icon class="mt-2">menu</mat-icon>
+  </button>
+
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="menu"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon class="mt-2">mail</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="menu"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon class="mt-2">notifications</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="menu"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon class="mt-2">account_circle</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
+    <mat-nav-list>
+      <a class="sidenav-item" mat-list-item>
+        <mat-icon>face</mat-icon>
+        <span> Patient</span>
+      </a>
+
+      <a class="sidenav-item" mat-list-item>
+        <mat-icon>person</mat-icon>
+        <span> Logout</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar class="toolbar-shadow">
+    <mat-card-title>Patient Dashboard</mat-card-title>
+  </mat-toolbar>
+
+  <div class="example-sidenav-content">
+    <div class="d-flex justify-content-around w-100 row">
+      <div class="col-sm-6 col-md-6 col-lg-6">
+      <app-add-patient></app-add-patient>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6">
+      <app-patient-list></app-patient-list>
+    </div>
+    </div>
+  </div>
+</mat-sidenav-container>
